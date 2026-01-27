@@ -95,7 +95,13 @@ describe('mountR2Storage', () => {
     expect(mountBucketMock).toHaveBeenCalledWith(
       'clawdbot-data',
       '/data/clawdbot',
-      { endpoint: 'https://account123.r2.cloudflarestorage.com' }
+      {
+        endpoint: 'https://account123.r2.cloudflarestorage.com',
+        credentials: {
+          accessKeyId: 'key123',
+          secretAccessKey: 'secret',
+        },
+      }
     );
   });
 
