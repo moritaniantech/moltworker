@@ -25,6 +25,14 @@ RUN npm install -g pnpm
 RUN npm install -g openclaw@2026.2.3 \
     && openclaw --version
 
+# Install obsidian-cli (required by OpenClaw's default Obsidian skill)
+ENV OBSIDIAN_CLI_VERSION=0.2.3
+RUN ARCH="$(dpkg --print-architecture)" \
+    && curl -fsSL "https://github.com/Yakitrak/obsidian-cli/releases/download/v${OBSIDIAN_CLI_VERSION}/obsidian-cli_${OBSIDIAN_CLI_VERSION}_linux_${ARCH}.tar.gz" -o /tmp/obsidian-cli.tar.gz \
+    && tar -xzf /tmp/obsidian-cli.tar.gz -C /usr/local/bin obsidian-cli \
+    && rm /tmp/obsidian-cli.tar.gz \
+    && obsidian-cli --version
+
 # Create OpenClaw directories
 # Legacy .clawdbot paths are kept for R2 backup migration
 RUN mkdir -p /root/.openclaw \
@@ -32,7 +40,7 @@ RUN mkdir -p /root/.openclaw \
     && mkdir -p /root/clawd/skills
 
 # Copy startup script
-# Build cache bust: 2026-02-06-v29-sync-workspace
+# Build cache bust: 2026-02-08-obsidian-cli
 COPY start-openclaw.sh /usr/local/bin/start-openclaw.sh
 RUN chmod +x /usr/local/bin/start-openclaw.sh
 

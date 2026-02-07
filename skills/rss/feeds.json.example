@@ -1,0 +1,19 @@
+{
+  "feeds": [
+    {
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/rss",
+      "tags": ["tech", "news"]
+    },
+    {
+      "name": "Cloudflare Blog",
+      "url": "https://blog.cloudflare.com/rss/",
+      "tags": ["cloudflare", "tech"]
+    },
+    {
+      "name": "GitHub Blog",
+      "url": "https://github.blog/feed/",
+      "tags": ["github", "dev"]
+    }
+  ]
+}
