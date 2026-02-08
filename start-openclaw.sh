@@ -261,7 +261,9 @@ if (process.env.TELEGRAM_BOT_TOKEN) {
 if (process.env.DISCORD_BOT_TOKEN) {
     const dmPolicy = process.env.DISCORD_DM_POLICY || 'pairing';
     const dm = { policy: dmPolicy };
-    if (dmPolicy === 'open') {
+    if (process.env.DISCORD_DM_ALLOW_FROM) {
+        dm.allowFrom = process.env.DISCORD_DM_ALLOW_FROM.split(',');
+    } else if (dmPolicy === 'open') {
         dm.allowFrom = ['*'];
     }
     config.channels.discord = {

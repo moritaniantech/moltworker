@@ -28,6 +28,7 @@ export interface MoltbotEnv {
   TELEGRAM_DM_POLICY?: string;
   DISCORD_BOT_TOKEN?: string;
   DISCORD_DM_POLICY?: string;
+  DISCORD_DM_ALLOW_FROM?: string; // カンマ区切りのサーバーID（例: "123456,789012"）
   SLACK_BOT_TOKEN?: string;
   SLACK_APP_TOKEN?: string;
   // Cloudflare Access configuration for admin routes
@@ -46,6 +47,8 @@ export interface MoltbotEnv {
   GOOGLE_CLIENT_ID?: string;
   GOOGLE_CLIENT_SECRET?: string;
   GOOGLE_REFRESH_TOKEN?: string;
+  // Brave Search API
+  BRAVE_API_KEY?: string;
 }
 
 /**

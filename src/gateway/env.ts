@@ -43,6 +43,7 @@ export function buildEnvVars(env: MoltbotEnv): Record<string, string> {
   if (env.TELEGRAM_DM_POLICY) envVars.TELEGRAM_DM_POLICY = env.TELEGRAM_DM_POLICY;
   if (env.DISCORD_BOT_TOKEN) envVars.DISCORD_BOT_TOKEN = env.DISCORD_BOT_TOKEN;
   if (env.DISCORD_DM_POLICY) envVars.DISCORD_DM_POLICY = env.DISCORD_DM_POLICY;
+  if (env.DISCORD_DM_ALLOW_FROM) envVars.DISCORD_DM_ALLOW_FROM = env.DISCORD_DM_ALLOW_FROM;
   if (env.SLACK_BOT_TOKEN) envVars.SLACK_BOT_TOKEN = env.SLACK_BOT_TOKEN;
   if (env.SLACK_APP_TOKEN) envVars.SLACK_APP_TOKEN = env.SLACK_APP_TOKEN;
   if (env.CF_AI_GATEWAY_MODEL) envVars.CF_AI_GATEWAY_MODEL = env.CF_AI_GATEWAY_MODEL;
@@ -53,6 +54,8 @@ export function buildEnvVars(env: MoltbotEnv): Record<string, string> {
   if (env.GOOGLE_CLIENT_ID) envVars.GOOGLE_CLIENT_ID = env.GOOGLE_CLIENT_ID;
   if (env.GOOGLE_CLIENT_SECRET) envVars.GOOGLE_CLIENT_SECRET = env.GOOGLE_CLIENT_SECRET;
   if (env.GOOGLE_REFRESH_TOKEN) envVars.GOOGLE_REFRESH_TOKEN = env.GOOGLE_REFRESH_TOKEN;
+  // Brave Search API
+  if (env.BRAVE_API_KEY) envVars.BRAVE_API_KEY = env.BRAVE_API_KEY;
 
   return envVars;
 }
